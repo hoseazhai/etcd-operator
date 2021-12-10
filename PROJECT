@@ -1,0 +1,10 @@
+domain: jepaas.com
+repo: github.com/hoseazhai/etcd-operator
+resources:
+- group: etcd
+  kind: EtcdCluster
+  version: v1alpha1
+- group: etcd
+  kind: EtcdBackup
+  version: v1alpha1
+version: "2"

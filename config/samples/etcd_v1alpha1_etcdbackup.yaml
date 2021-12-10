@@ -1,0 +1,14 @@
+apiVersion: etcd.jepaas.com/v1alpha1
+kind: EtcdBackup
+metadata:
+  name: etcdbackup-sample
+spec:
+  etcdUrl: "http://etcdcluster-sample-0.etcdcluster-sample.default.svc.cluster.local:2379"
+  storageType: s3  # 指定备份类型
+  s3:
+    path: "jepaas.com/{{ .Namespace }}/{{ .Name }}/{{ .UID }}/etcd-snapshot.db"  # 数据存放目录
+    endpoint: "play.min.io"
+    Secret: "minio-access-secret"   # 包含 accessKeyID 与 secretAccessKey
+  oss:
+    path: "foo-bucket/snapshot.db"
+    Secret: "secret"
